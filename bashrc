@@ -75,11 +75,3 @@ export PATH=$PATH:$HOME_DIR/bin:$HOME_DIR/source/django/bin
 
 # SCREEN
 export TERM=screen
-
-# WELCOME
-echo -e ""
-echo -ne "Today is "; date
-echo -e ""; cal;
-echo "";
-echo -ne "Up time: ";uptime | awk /'up/ {print $3,$4}'
-echo "";
