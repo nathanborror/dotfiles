@@ -1,0 +1,5 @@
+*.pyc
+*.log
+.svn/
+.gitignore
+.DS_Store
