@@ -1,5 +1,9 @@
-# Custom prompt
-PS1="[\w] \u\$ "
+# GLOBALS
+PS1="[\w] \u\$ "        # Define custom prompt
+
+if [ ! $HOME_DIR ]; then
+  HOME_DIR='/home/nathan'   # Define home directory
+fi
 
 # Default editor
 export EDITOR=/usr/bin/vim
@@ -20,6 +24,7 @@ alias du="du -h -c"                           # Calculate total disk usage for a
 alias rhino="java -jar ~/bin/rhino.jar"       # Begin a rhino session
 alias prs="python -m SimpleHTTPServer"        # Simple python server
 alias pypath="python -c 'import sys; print sys.path' | tr ',' '\n' | grep -v 'egg'" # Show pythonpath
+alias home="cd $HOME_DIR"
 
 # APTITUDE ALIASES
 alias update="sudo aptitude update"
@@ -55,24 +60,26 @@ alias gitserve="gitserve -p 8080 -a localhost"
 alias rabbit_start="sudo -H -u rabbitmq rabbitmq-server"
 
 # PERSONAL ALIASES
-alias mdl="cd /home/nathan/modules"
-alias src="cd /home/nathan/source"
-alias django="cd /home/nathan/source/django"
-alias basic="cd /home/nathan/source/django-basic-apps"
-alias read="cd /home/nathan/projects/readernaut"
-alias pb="cd /home/nathan/projects/playgroundblues"
+alias mdl="cd $HOME_DIR/modules"
+alias src="cd $HOME_DIR/source"
+alias django="cd $HOME_DIR/source/django"
+alias basic="cd $HOME_DIR/source/django-basic-apps"
+alias read="cd $HOME_DIR/projects/readernaut"
+alias pb="cd $HOME_DIR/projects/playgroundblues"
 
 # PYTHONPATH
-export PYTHONPATH=$PYTHONPATH:/home/nathan/projects:/home/nathan/modules
+export PYTHONPATH=$PYTHONPATH:$HOME_DIR/projects:$HOME_DIR/modules
 
 # PATH
-export PATH=$PATH:/home/nathan/bin:/home/nathan/source/django/bin
+export PATH=$PATH:$HOME_DIR/bin:$HOME_DIR/source/django/bin
 
+# SCREEN
 export TERM=screen
 
-
+# WELCOME
 echo -e ""
 echo -ne "Today is "; date
 echo -e ""; cal;
-echo -ne "Up time: ";uptime | awk /"up/ {print $3,$4}"
+echo "";
+echo -ne "Up time: ";uptime | awk /'up/ {print $3,$4}'
 echo "";
