@@ -1,0 +1,18 @@
+[user]
+  email = nathan@playgroundblues.com
+  name = Nathan Borror
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[alias]
+  st = status
+  b = branch
+  ci = commit
+  co = checkout
+[pager]
+  color = true 
+[status]
+  color = auto
+[diff]
+  renamelimit = 0
