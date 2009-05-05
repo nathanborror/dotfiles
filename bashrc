@@ -1,8 +1,8 @@
 # GLOBALS
-PS1="[\w] \u\$ "        # Define custom prompt
+PS1="[\w] \u\$ "                              # Define custom prompt
 
 if [ ! $HOME_DIR ]; then
-  HOME_DIR='/home/nathan'   # Define home directory
+  HOME_DIR='/home/nathan'                     # Define home directory
 fi
 
 # Default editor
@@ -71,7 +71,7 @@ alias pb="cd $HOME_DIR/projects/playgroundblues"
 export PYTHONPATH=$PYTHONPATH:$HOME_DIR/projects:$HOME_DIR/modules
 
 # PATH
-export PATH=$PATH:$HOME_DIR/bin:$HOME_DIR/source/django/bin
+export PATH=$PATH:$HOME_DIR/bin:$HOME_DIR/source/django/django/bin
 
 # SCREEN
 export TERM=screen
