@@ -54,7 +54,10 @@ alias mysql_start="sudo /etc/init.d/mysql start"
 alias mysql_stop="sudo /etc/init.d/mysql stop"
 
 # GIT ALIASES
-alias gitserve="gitserve -p 8080 -a localhost"
+alias gs="gitserve -p 8080 -a localhost"
+alias gb="git branch -a"
+alias gbd="git branch -d"
+alias gp="git pull"
 
 # RABBITMQ
 alias rabbit_start="sudo -H -u rabbitmq rabbitmq-server"
@@ -75,3 +78,10 @@ export PATH=$PATH:$HOME_DIR/bin:$HOME_DIR/source/django/django/bin
 
 # SCREEN
 export TERM=screen
+
+
+# TCPFLOW
+alias flow_referrers="sudo tcpflow -c -i lo tcp port 8080 | grep Referer:"
+alias flow_from="sudo tcpflow -c -i lo tcp port 8080 | grep From:"
+alias flow_agent="sudo tcpflow -c -i lo tcp port 8080 | grep User-Agent:"
+alias flow_location="sudo tcpflow -c -i lo tcp port 8080 | grep Location:"
