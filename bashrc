@@ -57,6 +57,7 @@ alias mysql_stop="sudo /etc/init.d/mysql stop"
 alias gs="gitserve -p 8080 -a localhost"
 alias gb="git branch -a"
 alias gbd="git branch -d"
+alias gc="git commit"
 alias gp="git pull"
 
 # RABBITMQ
