@@ -1,18 +1,18 @@
 [user]
-  email = nathan@playgroundblues.com
-  name = Nathan Borror
+    email = nathan@playgroundblues.com
+    name = Nathan Borror
 [color]
-  diff = auto
-  status = auto
-  branch = auto
+    diff = auto
+    status = auto
+    branch = auto
 [alias]
-  st = status
-  b = branch
-  ci = commit
-  co = checkout
+    st = status
+    b = branch
+    ci = commit
+    co = checkout
 [pager]
-  color = true 
+    color = true 
 [status]
-  color = auto
+    color = auto
 [diff]
-  renamelimit = 0
+    renamelimit = 0
