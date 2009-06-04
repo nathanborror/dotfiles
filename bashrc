@@ -39,7 +39,7 @@ alias nginx_stop="sudo /etc/init.d/nginx stop"
 alias apache_restart="sudo /etc/init.d/apache2 restart"
 alias apache_reload="sudo /etc/init.d/apache2 reload"
 alias apache_start="sudo /etc/init.d/apache2 start"
-alias apache_stop="sudo /etc/init.d/apache2 stop"
+alias apache_stop="sudo /etc/init.d/apache2"
 alias apache_log="sudo vim /var/log/apache2/error.log"
 
 # DJANGO ALIASES
@@ -52,6 +52,9 @@ alias test="django-admin.py test --settings=$DJANGO_SETTINGS_MODULE"
 alias mysql_restart="sudo /etc/init.d/mysql restart"
 alias mysql_start="sudo /etc/init.d/mysql start"
 alias mysql_stop="sudo /etc/init.d/mysql stop"
+
+# Postgres
+alias postgresql_restart="sudo /etc/init.d/postgresql-8.3 restart"
 
 # GIT ALIASES
 alias gs="gitserve -p 8080 -a localhost"
@@ -67,9 +70,6 @@ alias rabbit_start="sudo -H -u rabbitmq rabbitmq-server"
 alias mdl="cd $HOME_DIR/modules"
 alias src="cd $HOME_DIR/source"
 alias django="cd $HOME_DIR/source/django"
-alias basic="cd $HOME_DIR/source/django-basic-apps"
-alias read="cd $HOME_DIR/projects/readernaut"
-alias pb="cd $HOME_DIR/projects/playgroundblues"
 
 # PYTHONPATH
 export PYTHONPATH=$PYTHONPATH:$HOME_DIR/projects:$HOME_DIR/modules
