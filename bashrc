@@ -1,5 +1,10 @@
 # GLOBALS
-PS1="[\w] \u\$ "                              # Define custom prompt
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/:\1/'
+}
+
+PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$ '
 
 if [ ! $HOME_DIR ]; then
   HOME_DIR='/home/nathan'                     # Define home directory
@@ -79,7 +84,6 @@ export PATH=$PATH:$HOME_DIR/bin:$HOME_DIR/source/django/django/bin
 
 # SCREEN
 export TERM=screen
-
 
 # TCPFLOW
 alias flow_referrers="sudo tcpflow -c -i lo tcp port 8080 | grep Referer:"
