@@ -30,6 +30,7 @@ alias rhino="java -jar ~/bin/rhino.jar"       # Begin a rhino session
 alias prs="python -m SimpleHTTPServer"        # Simple python server
 alias pypath="python -c 'import sys; print sys.path' | tr ',' '\n' | grep -v 'egg'" # Show pythonpath
 alias home="cd $HOME_DIR"
+alias wget="wget --convert-links -r"
 
 # APTITUDE ALIASES
 alias update="sudo aptitude update"
@@ -48,10 +49,11 @@ alias apache_stop="sudo /etc/init.d/apache2"
 alias apache_log="sudo vim /var/log/apache2/error.log"
 
 # DJANGO ALIASES
-alias rs="python manage.py runserver --settings=$DJANGO_SETTINGS_MODULE"
-alias sdb="python manage.py syncdb --settings=$DJANGO_SETTINGS_MODULE"
-alias shell="django-admin.py shell --settings=$DJANGO_SETTINGS_MODULE"
-alias test="django-admin.py test --settings=$DJANGO_SETTINGS_MODULE"
+alias da="django-admin.py"
+alias rs="da runserver --settings=$DJANGO_SETTINGS_MODULE"
+alias sdb="da syncdb --settings=$DJANGO_SETTINGS_MODULE"
+alias shell="da shell --settings=$DJANGO_SETTINGS_MODULE"
+alias test="da test --settings=$DJANGO_SETTINGS_MODULE"
 
 # MYSQL ALIASES
 alias mysql_restart="sudo /etc/init.d/mysql restart"
@@ -77,16 +79,17 @@ alias src="cd $HOME_DIR/source"
 alias django="cd $HOME_DIR/source/django"
 
 # PYTHONPATH
-export PYTHONPATH=$PYTHONPATH:$HOME_DIR/projects:$HOME_DIR/modules
+export PYTHONPATH=$HOME_DIR/projects:$HOME_DIR/modules:$PYTHONPATH
 
 # PATH
-export PATH=$PATH:$HOME_DIR/bin:$HOME_DIR/source/django/django/bin
+export PATH=$HOME_DIR/bin:$HOME_DIR/source/django/django/bin:$PATH
 
 # SCREEN
 export TERM=screen
 
 # TCPFLOW
-alias flow_referrers="sudo tcpflow -c -i lo tcp port 8080 | grep Referer:"
-alias flow_from="sudo tcpflow -c -i lo tcp port 8080 | grep From:"
-alias flow_agent="sudo tcpflow -c -i lo tcp port 8080 | grep User-Agent:"
-alias flow_location="sudo tcpflow -c -i lo tcp port 8080 | grep Location:"
+alias flow_referrers="sudo tcpflow -c -i lo tcp port 80 | grep Referer:"
+alias flow_from="sudo tcpflow -c -i lo tcp port 80 | grep From:"
+alias flow_agent="sudo tcpflow -c -i lo tcp port 80 | grep User-Agent:"
+alias flow_location="sudo tcpflow -c -i lo tcp port 80 | grep Location:"
+alias flow_location="sudo tcpflow -c -i lo tcp port 80 | grep X-Real-IP:"
