@@ -32,6 +32,9 @@ alias pypath="python -c 'import sys; print sys.path' | tr ',' '\n' | grep -v 'eg
 alias home="cd $HOME_DIR"
 alias wget="wget --convert-links -r"
 
+# Fixes "the application Finder can't be opened (-10810)" error.
+alias finder_restart="/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder &"
+
 # APTITUDE ALIASES
 alias update="sudo aptitude update"
 alias upgrade="sudo aptitude safe-upgrade"
