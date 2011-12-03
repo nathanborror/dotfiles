@@ -82,7 +82,7 @@ alias src="cd $HOME_DIR/source"
 alias django="cd $HOME_DIR/source/django"
 
 # PYTHONPATH
-export PYTHONPATH=$HOME_DIR/projects:$HOME_DIR/modules:$PYTHONPATH
+export PYTHONPATH=$HOME_DIR/modules:$PYTHONPATH
 
 # PATH
 export PATH=$HOME_DIR/bin:$HOME_DIR/source/django/django/bin:$PATH
