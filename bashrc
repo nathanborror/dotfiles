@@ -1,19 +1,21 @@
-# GLOBALS
+#
+# bashrc
+#
 
+if [ ! $WORKING ]; then
+  WORKING='/home/nathan'                      # Define working directory
+fi
+
+# Prompt
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/:\1/'
 }
-
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$ '
-
-if [ ! $HOME_DIR ]; then
-  HOME_DIR='/home/nathan'                     # Define home directory
-fi
 
 # Default editor
 export EDITOR=/usr/bin/vim
 
-# ALIASES
+# Aliases
 alias ..="cd .."                              # Go up one directory
 alias ...="cd ../.."                          # Go up two directories
 alias ls="ls -a"                              # Show hidden
@@ -26,39 +28,32 @@ alias rmpyc="find . -name '*.pyc' -delete"    # Remove .PYC files.
 alias ping="ping -c 5"                        # Pings with 5 packets, not unlimited
 alias df="df -h"                              # Disk free, in gigabytes, not bytes
 alias du="du -h -c"                           # Calculate total disk usage for a folder
-alias rhino="java -jar ~/bin/rhino.jar"       # Begin a rhino session
-alias prs="python -m SimpleHTTPServer"        # Simple python server
-alias pypath="python -c 'import sys; print sys.path' | tr ',' '\n' | grep -v 'egg'" # Show pythonpath
-alias home="cd $HOME_DIR"
+alias wk="cd $WORKING"
 alias wget="wget --convert-links -r"
+alias mdl="cd $WORKING/modules"
+alias src="cd $WORKING/source"
+alias django="cd $WORKING/source/django"
+alias reload="source ~/.bashrc; source ~/.bash_profile"
 
-# Fixes "the application Finder can't be opened (-10810)" error.
-alias finder_restart="/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder &"
-
-# APTITUDE ALIASES
+# Aptitude
 alias update="sudo aptitude update"
 alias upgrade="sudo aptitude safe-upgrade"
 
-# NGINX ALIASES
-alias nginx_restart="sudo /etc/init.d/nginx restart"
-alias nginx_start="sudo /etc/init.d/nginx start"
-alias nginx_stop="sudo /etc/init.d/nginx stop"
-
-# APACHE ALIASES
+# Apache
 alias apache_restart="sudo /etc/init.d/apache2 restart"
 alias apache_reload="sudo /etc/init.d/apache2 reload"
 alias apache_start="sudo /etc/init.d/apache2 start"
 alias apache_stop="sudo /etc/init.d/apache2"
 alias apache_log="sudo vim /var/log/apache2/error.log"
 
-# DJANGO ALIASES
-alias da="django-admin.py"
-alias rs="da runserver --settings=$DJANGO_SETTINGS_MODULE"
+# Django
+alias da="$WORKING/modules/django/bin/django-admin.py"
+alias rs="da runserver 0.0.0.0:8000 --settings=$DJANGO_SETTINGS_MODULE"
 alias sdb="da syncdb --settings=$DJANGO_SETTINGS_MODULE"
 alias shell="da shell --settings=$DJANGO_SETTINGS_MODULE"
 alias test="da test --settings=$DJANGO_SETTINGS_MODULE"
 
-# MYSQL ALIASES
+# MySQL
 alias mysql_restart="sudo /etc/init.d/mysql restart"
 alias mysql_start="sudo /etc/init.d/mysql start"
 alias mysql_stop="sudo /etc/init.d/mysql stop"
@@ -66,33 +61,23 @@ alias mysql_stop="sudo /etc/init.d/mysql stop"
 # Postgres
 alias postgresql_restart="sudo /etc/init.d/postgresql-8.3 restart"
 
-# GIT ALIASES
-alias gs="gitserve -p 8080 -a localhost"
-alias gb="git branch -a"
-alias gbd="git branch -d"
-alias gc="git commit"
-alias gp="git pull"
+# Python
+alias prs="python -m SimpleHTTPServer"        # Simple python server
+export PYTHONPATH=$WORKING/modules:$PYTHONPATH
 
-# RABBITMQ
-alias rabbit_start="sudo -H -u rabbitmq rabbitmq-server"
+# System path
+export PATH=$WORKING/bin:$WORKING/source/django/django/bin:$PATH
 
-# PERSONAL ALIASES
-alias mdl="cd $HOME_DIR/modules"
-alias src="cd $HOME_DIR/source"
-alias django="cd $HOME_DIR/source/django"
-
-# PYTHONPATH
-export PYTHONPATH=$HOME_DIR/modules:$PYTHONPATH
-
-# PATH
-export PATH=$HOME_DIR/bin:$HOME_DIR/source/django/django/bin:$PATH
-
-# SCREEN
+# Screen
 export TERM=screen
 
-# TCPFLOW
+# TCP Flow
 alias flow_referrers="sudo tcpflow -c -i lo tcp port 80 | grep Referer:"
 alias flow_from="sudo tcpflow -c -i lo tcp port 80 | grep From:"
 alias flow_agent="sudo tcpflow -c -i lo tcp port 80 | grep User-Agent:"
 alias flow_location="sudo tcpflow -c -i lo tcp port 80 | grep Location:"
 alias flow_location="sudo tcpflow -c -i lo tcp port 80 | grep X-Real-IP:"
+
+# Completion
+source ~/.bash/git_completion
+

@@ -1,12 +1,13 @@
 [user]
-	email = nathan@nathanborror.com
     name = Nathan Borror
+    email = nathan@nathanborror.com
 [color]
     diff = auto
     status = auto
     branch = auto
 [core]
     excludesfile = ~/.gitignore
+    editor = mate -w
 [alias]
     s = status
     b = branch
@@ -25,4 +26,3 @@
     tool = opendiff
 [push]
     default=current
-
