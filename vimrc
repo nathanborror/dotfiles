@@ -29,7 +29,7 @@ imap <Tab> <C-N>
 imap <C-L> <Space>=><Space>
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·
+" set list listchars=tab:»·,trail:·
 
 " Color scheme
 " colorscheme vividchalk
