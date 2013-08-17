@@ -81,3 +81,5 @@ alias flow_location="sudo tcpflow -c -i lo tcp port 80 | grep X-Real-IP:"
 # Completion
 source ~/.bash/git_completion
 
+# C++
+alias bcpp="clang++ -std=c++11 -stdlib=libc++ -Weverything"
